@@ -1,5 +1,9 @@
 <template>
 	<div class="user-details">
+		<router-link :to="{name: 'home'}">
+			<button style="float:right;">X</button>
+		</router-link>
+
 		<page-title :title="title" subtitle="Edit info and role"></page-title>
 		<p>
 			<label>Info</label>
@@ -9,9 +13,9 @@
 				<input type="text" v-model="user.lastname" /><br/>
 				<input type="text" v-model="user.email" /><br/>
 				<input type="text" v-model="user.phone" /><br/>
-				<p><input type="submit" class="button" value="Save" /></p>
+				<p><input type="submit" class="button" value="Save" style="float:right" /></p>
 			</form>
-			<p><button class="button danger" v-on:click='deleteUser'>Delete</button></p>
+			<p v-if="!isNewUser"><button class="button danger" v-on:click='deleteUser'>Delete</button></p>
 
 		</p>
 	</div>
@@ -62,6 +66,8 @@ export default {
 <style scoped>
 input[type="text"] {
   padding: 5px;
+  width: 485px;
+
   font-size: 0.9em;
   border: solid 2px #bdbdbd;
   transition: border 0.5s;

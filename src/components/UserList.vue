@@ -1,5 +1,9 @@
 <template>
 	<div class="userList">
+		<router-link :to="{name: 'user_new'}">
+			<button style="float:right;">+</button>
+		</router-link>
+
 		<page-title title="Team Members" :subtitle="description"></page-title>
 		<ul>
 			<li v-for="user in users">
