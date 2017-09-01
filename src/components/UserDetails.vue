@@ -1,17 +1,18 @@
 <template>
 	<div class="user-details">
-		<page-title title="Edit Team Member" subtitle="Edit info and role"></page-title>
+		<page-title :title="title" subtitle="Edit info and role"></page-title>
 		<p>
 			<label>Info</label>
 			<br/>
-			<form v-on:submit.prevent='addUser'>
+			<form v-on:submit.prevent='updateUser'>
 				<input type="text" v-model="user.firstname" /><br/>
 				<input type="text" v-model="user.lastname" /><br/>
 				<input type="text" v-model="user.email" /><br/>
 				<input type="text" v-model="user.phone" /><br/>
-
-				<input type="submit" value="Submit" />
+				<p><input type="submit" class="button" value="Save" /></p>
 			</form>
+			<p><button class="button danger" v-on:click='deleteUser'>Delete</button></p>
+
 		</p>
 	</div>
 </template>
@@ -24,9 +25,8 @@ import store from '@/store'
 export default {
 	name: 'user-details',
 	components: { PageTitle },
-	isNewUser: false,
-
-	props: ['id'],
+	
+	props: ['id', 'isNewUser'],
 
 	data() {
 		return {
@@ -35,10 +35,42 @@ export default {
 	},
 
 	methods: {
-		addUser: function() {
+		updateUser: function() {
 			store.createOrUpdateUser(this.user)
-			console.log("Adding User")
+			this.$router.push('/')
+		},
+
+		deleteUser: function() {
+			store.deleteUser(this.user)
+			this.$router.push('/')
+		}
+	},
+
+	computed: {
+		title: function() {
+			if (this.isNewUser) 
+				return "Create Team Member"
+			else
+				return "Edit Team Member"
 		}
 	}
+
+
 }
 </script>
+
+<style scoped>
+input[type="text"] {
+  padding: 5px;
+  font-size: 0.9em;
+  border: solid 2px #bdbdbd;
+  transition: border 0.5s;
+  margin-bottom: 5px;
+}
+
+input[type="text"]:focus {
+  border: solid 2px #795548;
+  outline: none;
+}
+
+</style>

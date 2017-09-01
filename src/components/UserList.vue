@@ -3,7 +3,7 @@
 		<page-title title="Team Members" :subtitle="description"></page-title>
 		<ul>
 			<li v-for="user in users">
-				<router-link :to="{name: 'user', params: {id: user.id}}">
+				<router-link :to="{name: 'user_edit', params: {id: user.id}}">
 				<p>
 					<h5>{{ user.firstname }} {{ user.lastname }}</h5>
 					    {{ user.phone }}<br/>
@@ -43,16 +43,21 @@ export default {
 	}
 
 	li {
-		border-top: 1px solid #fee;
-		border-bottom: 1px solid #fee;
+		border-top: 1px solid #2196F3;
+		border-bottom: 1px solid #2196F3;
+		color: #616161;
+		font-size: 0.9em;
 	}
 
 	li a {
 		text-decoration: none;
+		color: inherit;
 	}
 
 	h5 {
 		margin: 0;
+		color: #212121;
+		font-size: 1em;
 	}
 
 </style>

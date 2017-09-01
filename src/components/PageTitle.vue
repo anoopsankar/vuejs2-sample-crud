@@ -24,6 +24,6 @@
  	font-size: 1.1em;
  	font-weight: normal;
  	margin: 0;
- 	color: #a06b71;
+ 	color:#616161;
  }
 </style>
