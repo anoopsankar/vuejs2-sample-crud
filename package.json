@@ -4,6 +4,7 @@
   "description": "A Vue.js project",
   "author": "Anoop Sankar <anoop.sankar@gmail.com>",
   "private": true,
+  "main": "electron.js",
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
