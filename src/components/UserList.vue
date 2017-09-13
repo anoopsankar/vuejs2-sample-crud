@@ -6,7 +6,7 @@
 
 		<page-title title="Team Members" :subtitle="description"></page-title>
 		<ul>
-			<li v-for="user in users">
+			<li v-for="user in users" :key="user.id">
 				<router-link :to="{name: 'user_edit', params: {id: user.id}}">
 				<p>
 					<h5>{{ user.firstname }} {{ user.lastname }}</h5>
