@@ -12,7 +12,7 @@
 					<h5>{{ user.firstname }} {{ user.lastname }}</h5>
 					    {{ user.phone }}<br/>
 					    {{ user.email }}
-				</p>
+				
 				</router-link>
 			</li>
 		</ul>
